@@ -1,0 +1,21 @@
+<article class="box animate__animated animate__fadeIn animate_faster">
+
+    <header>
+        <h1>Usuario Detalle</h1>
+        <button class="btn btn-danger" routerLink="/usuarios/admin">Ir Atrás</button>
+    </header>
+    <hr>
+
+    <article *ngIf="usuario else noHayResultados">
+        <h3>
+            {{ usuario.login }}
+            <small class="text-muted">ID: {{ usuario.id }}</small>
+        </h3>
+        <img width="320" [src]="usuario.avatar_url" [alt]="usuario.login">
+    </article>
+
+    <ng-template #noHayResultados>
+        <p>No se encontraron resultados para el término <b>{{ queryString }}</b></p>
+    </ng-template>
+
+</article>

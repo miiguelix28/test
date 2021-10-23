@@ -1,0 +1,29 @@
+<app-nav></app-nav>
+<article class="box animate__animated animate__fadeIn animate_faster">
+
+  <header>
+    <h1>Listado de Usuarios de Github</h1>
+  </header>
+
+  <app-usuario-buscar></app-usuario-buscar>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Usuario</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let usuario of usuarios">
+          <td>{{ usuario.id }}</td>
+          <td>
+            <a [routerLink]="['/usuarios/detalle', usuario.login]">
+              {{ usuario.login }}
+            </a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+</article>

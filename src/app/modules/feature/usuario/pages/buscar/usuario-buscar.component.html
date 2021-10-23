@@ -1,0 +1,15 @@
+
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="mb-3">
+        <input 
+        type="text" 
+        formControlName="usuario"
+        class="form-control" 
+        placeholder="Buscar usuario...">
+        <small *ngIf="formControls.usuario?.invalid && (formControls.usuario?.dirty || formControls.usuario?.touched)">
+            <span class="tex-danger" *ngIf="formControls.usuario?.errors?.required">Usuario es requerido<br></span>
+            <span class="tex-danger" *ngIf="formControls.usuario?.errors?.minlength">Usuario debe tener minimo 4 caracteres<br></span>
+        </small>
+    </div>
+    <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Buscar</button>
+</form>
